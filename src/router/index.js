@@ -40,6 +40,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "food" */ '../views/food/food.vue')
+  },
+  {
+    path: '/shop',
+    name: 'Shop',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "food" */ '../views/shop/shop.vue')
   }
 ]
 
@@ -60,17 +68,17 @@ const router = new VueRouter({
 // const whitelist = []
 // router.beforeEach(ayncs(to, from, next) => {
 //   if (store.state.user.token) {
-//     if (to.path === '/login') {
-//       next('/')
-//     } else {
-// if(store.getters.hasUserInfon){
-//   await store.dispatch('user/getUserInfo')}
-//       next()
-//     }
-//   } else {
-//     if (whitelist.indexOf(to.path) > -1) {
-//       next()
-//     } else {
+//         if (to.path === '/login') {
+//              next('/')
+//         } else {
+//                 if(!store.getters.hasUserInfon){
+//                   await store.dispatch('user/getUserInfo')}
+//                       next()
+//                     }
+//                   } else {
+//                     if (whitelist.indexOf(to.path) > -1) {
+//                       next()
+//      } else {
 //       next('/login')
 //     }
 //   }

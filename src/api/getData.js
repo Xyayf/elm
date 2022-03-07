@@ -120,3 +120,13 @@ export const getShopList = ({
 
   })
 }
+//shop页面 获取食品列表
+export const getFoodMenu=(restaurant_id)=>{
+return request({
+  url:'shopping/v2/menu',
+  method:'get',
+  params:{
+    restaurant_id
+  }
+})
+}
