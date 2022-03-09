@@ -37,6 +37,7 @@ export default {
         }
       }
       state.cartList = { ...cartList }
+      console.log(state.cartList)
     },
     // 移除购物车
     RemoveCart (state,

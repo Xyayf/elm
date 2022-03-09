@@ -1,14 +1,14 @@
 <template>
   <div class="add_button">
     <section class="subtrac_contain">
-      <svg class="minus_icon svg_icon" @click="removeCart" v-if="foodNum>0">
+      <svg class="minus_icon svg_icon" @click="removeCart" v-if="foodNum > 0">
         <use
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xlink:href="#cart-minus"
         ></use>
       </svg>
     </section>
-    <span class="food_number" v-if="foodNum>0">{{ foodNum }}</span>
+    <span class="food_number" v-if="foodNum > 0">{{ foodNum }}</span>
     <section class="add_contain">
       <svg
         class="add_icon svg_icon"
@@ -35,7 +35,11 @@ export default {
   },
   data () {
     return {
-      Foodspec: null
+      Foodspec: null,
+      // 记录小圆点的相对于视口的位置
+
+      showMoveDot: []
+
     }
   },
   computed: {
@@ -80,9 +84,11 @@ export default {
       // 记录元素的大小及其相对于视口的位置
       const elLeft = e.target.getBoundingClientRect().left
       const elBottom = e.target.getBoundingClientRect().bottom
+      this.showMoveDot.push(true)
       this.$emit('recordDot', {
         elLeft,
-        elBottom
+        elBottom,
+        showMoveDot: this.showMoveDot
       })
     },
     // 移除购物车
@@ -102,9 +108,12 @@ export default {
       })
     },
     showSpeci () {
-      this.$emit('showSpeci', this.Foodfood)
+      this.$emit('showSpeci', {
+        food: this.Foodfood,
+        categroy_id: this.categroy_id
+      })
     },
-    removeOutCart () {}
+    removeOutCart () { }
   }
 }
 </script>
