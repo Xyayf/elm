@@ -69,7 +69,7 @@ export default {
       headTitle: '',
       indexEntrys: [],
       geohash: '31.22299,121.36025',
-      imgBadeUrl: 'https://fuss10.elemecdn.com/',
+      imgBadeUrl: '',
       foodType: []
     }
   },

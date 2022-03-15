@@ -1,7 +1,11 @@
 export default {
   namespaced: true,
   state: {
-    cartList: {} // 加入购物车的商品列表
+    cartList: {}, // 加入购物车的商品列表,
+    remarktext: null, // 备注选择内容
+    inputremark: null, // 备注输入的内容,
+    addressRes: null// 收获地址
+
   },
   mutations: {
     // 加入购物车
@@ -59,6 +63,20 @@ export default {
       }
       state.cartList = { ...cartList }
       console.log(state.cartList)
+    },
+    // 清空购物车
+    cleaeCart (state, shopid) {
+      state.cartList[shopid] = null
+      state.cartList = { ...state.cartList }
+    },
+    // 记录备注内容
+    recordRemark (state, remark) {
+      state.remarktext = remark.remarktext
+      state.inputremark = remark.remarktext
+    },
+    // 选择收获地址
+    chooseAddress (state, { address }) {
+      state.addressRes = address
     }
   }
 }

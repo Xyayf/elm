@@ -130,3 +130,6 @@ export const getFoodMenu = (restaurant_id) => {
     }
   })
 }
+export const getAddressList=()=>{}
+export const checkout=()=>{},
+export const placeOrders=()=>{}

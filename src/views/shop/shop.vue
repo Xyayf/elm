@@ -144,46 +144,7 @@
       </section>
     </section>
     <!-- 购物车 -->
-    <section class="buy_cart_container">
-      <section @click="toggleCartList" class="cart_icon_num">
-        <div
-          class="cart_icon_container"
-          :class="{
-            cart_icon_activity: totalPrice > 0,
-            move_in_cart: receiveInCart,
-          }"
-          ref="cartContainer"
-        >
-          <span v-if="totalNum" class="cart_list_length">
-            {{ totalNum }}
-          </span>
-          <svg class="cart_icon">
-            <use
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              xlink:href="#cart-icon"
-            ></use>
-          </svg>
-        </div>
-        <div class="cart_num">
-          <div>¥ {{ totalPrice }}</div>
-          <div>配送费¥{{ deliveryFee }}</div>
-        </div>
-      </section>
-      <section
-        class="gotopay"
-        :class="{ gotopay_acitvity: minimumOrderAmount <= 0 }"
-      >
-        <span class="gotopay_button_style" v-if="minimumOrderAmount > 0"
-          >还差¥{{ minimumOrderAmount }}起送</span
-        >
-        <router-link
-          :to="{ path: '/confirmOrder', query: { geohash, shopId } }"
-          class="gotopay_button_style"
-          v-else
-          >去结算</router-link
-        >
-      </section>
-    </section>
+
     <!-- 小圆点 -->
 
     <transition
@@ -342,16 +303,7 @@ export default {
       this.popupFoodIndex = index
     },
     // 加入购物车
-    addCart (shopid,
-      categoryid,
-      itemid,
-      foodid,
-      name,
-      price,
-      specs,
-      packingfee,
-      skuid,
-      stock) {
+    addCart () {
       this.$store.commit({
         type: 'shopCart/AddCart',
         shopid: this.popupFood[this.popupFoodIndex].restaurant_id,
@@ -452,7 +404,7 @@ export default {
       el.style.transition =
         'transform .55s cubic-bezier(0.3, -0.25, 0.7, -0.15)'
       el.children[0].style.transition = 'transform .55s linear'
-      this.showMoveDot = this.showMoveDot.map((item) => false)
+      this.showMoveDot = []
       el.children[0].style.opacity = 1
       el.children[0].addEventListener('transitionend', () => {
         // this.listenInCart()
