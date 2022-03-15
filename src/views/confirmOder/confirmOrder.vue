@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
     <div class="confirmOrderContainer">
         <section v-if="!showLoading">
@@ -547,3 +548,6 @@ export default {
         opacity: 0;
     }
 </style>
+=======
+
+>>>>>>> dc39ddaa1f03d2386189d5c4289ba54bf8317ba8
